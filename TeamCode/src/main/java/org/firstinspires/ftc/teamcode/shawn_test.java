@@ -7,11 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class shawn_test extends OpMode {
     @Override
     public void init() {
-        int teamnumber = 3479;
-        double motorspeed = 0.43;
-        boolean clawclosed = true;
 
-        telemetry.addData("team number",teamnumber);
     }
 
     @Override
