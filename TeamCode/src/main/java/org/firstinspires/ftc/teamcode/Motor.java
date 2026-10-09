@@ -9,8 +9,8 @@ public class Motor {
     private DcMotor LeftFront;
     private DcMotor RightBack;
     private DcMotor LeftBack;
-    private DcMotor launcher;
-    private DcMotor InTake;
+   // private DcMotor launcher;
+   // private DcMotor InTake;
 
 
     public void init(HardwareMap hwMap){
@@ -19,8 +19,21 @@ public class Motor {
         LeftFront = hwMap.get(DcMotor.class,"LeftFront");
         RightBack = hwMap.get(DcMotor.class,"RightBack");
         LeftBack = hwMap.get(DcMotor.class,"LeftBack");
-        launcher = hwMap.get(DcMotor.class,"launcher");
-        InTake = hwMap.get(DcMotor.class,"InTake");
+        //launcher = hwMap.get(DcMotor.class,"launcher");
+        //InTake = hwMap.get(DcMotor.class,"InTake");
+
+        // We set the left motors in reverse which is needed for drive trains where the left
+        // motors are opposite to the right ones.
+        LeftBack.setDirection(DcMotor.Direction.REVERSE);
+        LeftFront.setDirection(DcMotor.Direction.REVERSE);
+
+        // This uses RUN_USING_ENCODER to be more accurate.   If you don't have the encoder
+        // wires, you should remove these
+        LeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        RightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        LeftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        RightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
 
 
     }
@@ -38,11 +51,11 @@ public class Motor {
         LeftBack.setPower(power);
     }
     public void L (double power){
-        launcher.setPower(power);
+        //launcher.setPower(power);
 
     }
     public void IT (double power){
-        InTake.setPower(power);
+        //InTake.setPower(power);
     }
 
     }
