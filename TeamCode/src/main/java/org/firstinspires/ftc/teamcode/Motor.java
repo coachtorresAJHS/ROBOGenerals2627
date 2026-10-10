@@ -13,7 +13,7 @@ public class Motor {
    // private DcMotor InTake;
 
 
-    public void init(HardwareMap hwMap){
+    public void init (HardwareMap hwMap){
 
         RightFront = hwMap.get(DcMotor.class, "RightFront");
         LeftFront = hwMap.get(DcMotor.class,"LeftFront");
@@ -38,17 +38,17 @@ public class Motor {
 
     }
     public void RF (double power) {
-        RightFront.setPower(power);
+        RightFront.setPower(-power);
     }
     public void RB (double power){
-        RightBack.setPower(power);
+        RightBack.setPower(-power);
 
     }
     public void LF (double power){
-        LeftFront.setPower(power);
+        LeftFront.setPower(-power);
     }
     public void LB (double power){
-        LeftBack.setPower(power);
+        LeftBack.setPower(-power);
     }
     public void L (double power){
         //launcher.setPower(power);

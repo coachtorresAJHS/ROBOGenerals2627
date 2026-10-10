@@ -25,7 +25,7 @@ public class TEST extends OpMode {
         M.LB(1);
       //  M.L(1);
         //M.IT(1);
-        S.S1(1);
+        //S.S1(1);
 
     }
 }
