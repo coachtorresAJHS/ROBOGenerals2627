@@ -36,6 +36,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
 /*
  * This OpMode illustrates how to program your robot to drive field relative.  This means
@@ -84,6 +85,7 @@ public class RobotTeleopMecanumFieldRelativeDrive extends OpMode {
         telemetry.addLine("Hold left bumper to drive in robot relative");
         telemetry.addLine("The left joystick sets the robot direction");
         telemetry.addLine("Moving the right joystick left and right turns the robot");
+       // telemetry.addData("Direction",imu.getRobotOrientation(AxesReference.valueOf()));
 
         // If you press the A button, then you reset the Yaw to be zero from the way
         // the robot is currently pointing
