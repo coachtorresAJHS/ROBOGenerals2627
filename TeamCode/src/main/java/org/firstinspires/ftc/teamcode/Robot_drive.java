@@ -10,6 +10,7 @@ public class Robot_drive {
     Motor m = new Motor();
 
     public void init(HardwareMap hwMap) {
+
         m.init(hwMap);
     }
 
@@ -69,7 +70,7 @@ public class Robot_drive {
         m.RB(0);
         m.RF(0);
     }
-    public void D_R( double power, long time){// Drift right for "time" miliseconds
+    public void D_L( double power, long time){// Drift right for "time" miliseconds
         m.LF(0-power);
         m.LB(power);
         m.RB(0-power);
@@ -80,7 +81,7 @@ public class Robot_drive {
         m.RB(0);
         m.RF(0);
     }
-    public void D_L( double power, long time){// Drift left for "time" miliseconds
+    public void D_R( double power, long time){// Drift left for "time" miliseconds
         m.LF(power);
         m.LB(0-power);
         m.RB(power);
