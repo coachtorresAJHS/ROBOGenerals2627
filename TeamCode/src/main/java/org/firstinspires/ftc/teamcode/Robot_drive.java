@@ -9,12 +9,11 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Robot_drive {
     Motor m = new Motor();
 
-   /* @Override
-    public void init() {
-        m.init(hardwareMap);
+    public void init(HardwareMap hwMap) {
+        m.init(hwMap);
     }
 
-    @Override
+    /*@Override
     public void loop() {
 
        // D_L(0.5,2000);

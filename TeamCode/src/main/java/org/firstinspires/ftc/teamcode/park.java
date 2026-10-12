@@ -8,13 +8,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 @Autonomous
 public class park extends OpMode {
-   Motor m = new Motor();
+   //Motor m = new Motor();
     Robot_drive drive = new Robot_drive();
 
     @Override
     public void init() {
-       m.init(hardwareMap);
-       //drive.(hardwareMap);
+       //m.init(hardwareMap);
+       drive.init(hardwareMap);
     }
 
     @Override
