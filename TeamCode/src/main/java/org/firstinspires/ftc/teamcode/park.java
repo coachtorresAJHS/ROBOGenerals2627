@@ -24,8 +24,9 @@ public class park extends OpMode {
     public void loop() {
         switch (state){
             case 0:
-                drive.D_L(0.5,1500);
-                drive.FWD(0.5,3200);
+                //drive.D_L(0.5,1500);
+                //drive.FWD(0.5,3200);
+                drive.FWD_DIS(0.1,54 );
                 state = 1;
                 break;
             case 1:

@@ -2,16 +2,30 @@ package org.firstinspires.ftc.teamcode;
 
 import static android.os.SystemClock.sleep;
 
+
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
+import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
 //@TeleOp
 public class Robot_drive {
     Motor m = new Motor();
+    SparkFunOTOS myOtos;
 
     public void init(HardwareMap hwMap) {
 
         m.init(hwMap);
+        myOtos = hwMap.get(SparkFunOTOS.class, "sensor_otos");
+        myOtos.setLinearUnit(DistanceUnit.INCH);
+        myOtos.setAngularUnit(AngleUnit.DEGREES);
+        myOtos.resetTracking();
+        myOtos.calibrateImu();
     }
 
     /*@Override
@@ -90,6 +104,26 @@ public class Robot_drive {
         m.LF(0);
         m.LB(0);
         m.RB(0);
+        m.RF(0);
+
+
+    }
+    public void FWD_DIS(double power,double x_dist){
+
+        SparkFunOTOS.Pose2D pos = myOtos.getPosition();
+
+
+        while (pos.x <= x_dist   ){
+            m.LF(power);
+            m.RB(power);
+            m.LB(power);
+            m.RF(power);
+
+            telemetry.addData("X coordinate", pos.x);
+        }
+        m.LF(0);
+        m.RB(0);
+        m.LB(0);
         m.RF(0);
     }
 }

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
 
 public class Motor {
 
@@ -33,6 +34,14 @@ public class Motor {
         RightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         LeftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         RightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        LeftBack.setZeroPowerBehavior(BRAKE);
+        LeftFront.setZeroPowerBehavior(BRAKE);
+        RightBack.setZeroPowerBehavior(BRAKE);
+        RightFront.setZeroPowerBehavior(BRAKE);
+
+
+
 
 
 
