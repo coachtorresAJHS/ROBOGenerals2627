@@ -18,6 +18,7 @@ public class park extends OpMode {
        //m.init(hardwareMap);
        drive.init(hardwareMap);
       state = 0;
+
     }
 
     @Override
@@ -26,8 +27,10 @@ public class park extends OpMode {
             case 0:
                 //drive.D_L(0.5,1500);
                 //drive.FWD(0.5,3200);
-                drive.FWD_DIS(0.1,54 );
+                drive.FWD_DIS(0.1,54, telemetry);
                 state = 1;
+                telemetry.addData("XPos",drive.x);
+
                 break;
             case 1:
                 telemetry.addLine("robotpark");

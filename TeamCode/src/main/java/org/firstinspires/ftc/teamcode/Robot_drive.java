@@ -10,23 +10,24 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 //@TeleOp
 public class Robot_drive {
     Motor m = new Motor();
-    SparkFunOTOS myOtos;
+    OTOS OTOS = new OTOS();
+
+
 
     public void init(HardwareMap hwMap) {
 
         m.init(hwMap);
-        myOtos = hwMap.get(SparkFunOTOS.class, "sensor_otos");
-        myOtos.setLinearUnit(DistanceUnit.INCH);
-        myOtos.setAngularUnit(AngleUnit.DEGREES);
-        myOtos.resetTracking();
-        myOtos.calibrateImu();
+        OTOS.init(hwMap);
+
     }
+
 
     /*@Override
     public void loop() {
@@ -108,18 +109,19 @@ public class Robot_drive {
 
 
     }
-    public void FWD_DIS(double power,double x_dist){
+    double x = OTOS.x;
+    public void FWD_DIS(double power,double x_dist, Telemetry words){
 
-        SparkFunOTOS.Pose2D pos = myOtos.getPosition();
 
 
-        while (pos.x <= x_dist   ){
+
+        while (OTOS.x <= x_dist   ){
             m.LF(power);
             m.RB(power);
             m.LB(power);
             m.RF(power);
 
-            telemetry.addData("X coordinate", pos.x);
+
         }
         m.LF(0);
         m.RB(0);

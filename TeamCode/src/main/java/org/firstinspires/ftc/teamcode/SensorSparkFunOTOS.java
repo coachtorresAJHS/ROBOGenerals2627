@@ -61,7 +61,8 @@ public class SensorSparkFunOTOS extends LinearOpMode {
             telemetry.addLine();
 
             // Log the position to the telemetry
-            telemetry.addData("X coordinate", pos.x);
+            telemetry.addData("X coordinate", pos.x
+            );
             telemetry.addData("Y coordinate", pos.y);
             telemetry.addData("Heading angle", pos.h);
 
