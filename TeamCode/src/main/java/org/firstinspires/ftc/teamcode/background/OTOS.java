@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.background;
 
 import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -15,9 +15,9 @@ public class OTOS {
         configureOtos();
     }
     SparkFunOTOS.Pose2D pos = myOtos.getPosition();
-    double x = pos.x;
-    double y = pos.y;
-    double h = pos.h;
+    public double x = pos.x;
+    public double y = pos.y;
+    public double h = pos.h;
 
     private void configureOtos(){
         myOtos.setLinearUnit(DistanceUnit.INCH);

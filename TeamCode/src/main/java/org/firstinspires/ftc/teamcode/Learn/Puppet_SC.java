@@ -1,6 +1,4 @@
-package org.firstinspires.ftc.teamcode;
-
-import static android.os.SystemClock.sleep;
+package org.firstinspires.ftc.teamcode.Learn;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;

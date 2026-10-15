@@ -1,18 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.background;
 
 import static android.os.SystemClock.sleep;
 
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
-
-import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 //@TeleOp
 public class Robot_drive {
@@ -109,7 +102,7 @@ public class Robot_drive {
 
 
     }
-    double x = OTOS.x;
+    public double x = OTOS.x;
     public void FWD_DIS(double power,double x_dist, Telemetry words){
 
 
