@@ -10,14 +10,14 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 //@TeleOp
 public class Robot_drive {
     Motor m = new Motor();
-    OTOS OTOS = new OTOS();
+   // OTOS OTOS = new OTOS();
 
 
 
     public void init(HardwareMap hwMap) {
 
         m.init(hwMap);
-        OTOS.init(hwMap);
+        //OTOS.init(hwMap);
 
     }
 
@@ -33,82 +33,87 @@ public class Robot_drive {
         m.init(hardwareMap);
 
     }*/
-
-    public void FWD(double power, long time){ // the "forward" function take variables power and
-        m.LF(power);                              // time and and drives forward at speed for that time
-        m.LB(power);
-        m.RB(power);
+    public void FWD(double power) {
         m.RF(power);
-        sleep(time);
-        m.LF(0);
-        m.LB(0);
-        m.RB(0);
-        m.RF(0);
+        m.RB(power);
+        m.LB(power);
+        m.LF(power);
     }
-    public void BWD(double power, long time){ // the "forward" function take variables power and
-        m.LF(0-power);                              // time and and drives forward at speed for that time
-        m.LB(0-power);
-        m.RB(0-power);
-        m.RF(0-power);
-        sleep(time);
-        m.LF(0);
-        m.LB(0);
-        m.RB(0);
-        m.RF(0);
-    }
-    public void T_L( double power, long time){//turn left for "time' miliseconds
+    public void T_L(double power){
         m.LF(0-power);
         m.LB(0-power);
         m.RB(power);
         m.RF(power);
-        sleep(time);
-        m.LF(0);
-        m.LB(0);
-        m.RB(0);
-        m.RF(0);
+
     }
-    public void T_R( double power, long time){// turn right for "time" miliseconds
+    public void T_R( double power){
         m.LF(power);
         m.LB(power);
         m.RB(0-power);
         m.RF(0-power);
-        sleep(time);
-        m.LF(0);
-        m.LB(0);
-        m.RB(0);
-        m.RF(0);
     }
-    public void D_L( double power, long time){// Drift right for "time" miliseconds
+    public void D_L (double power){
         m.LF(0-power);
         m.LB(power);
         m.RB(0-power);
         m.RF(power);
-        sleep(time);
-        m.LF(0);
-        m.LB(0);
-        m.RB(0);
-        m.RF(0);
     }
-    public void D_R( double power, long time){// Drift left for "time" miliseconds
+    public void D_R(double power){
         m.LF(power);
         m.LB(0-power);
         m.RB(power);
         m.RF(0-power);
-        sleep(time);
+    }
+
+
+    public void stopplease(){
         m.LF(0);
         m.LB(0);
         m.RB(0);
         m.RF(0);
+        }
+    public void FWD_Time(double power, long time){ // the "forward" function take variables power and
+        FWD(power);
+        sleep(time);
+        stopplease();
+    }
+    public void BWD_Time(double power, long time){ // the "forward" function take variables power and
+        FWD(0-power);
+        sleep(time);
+        stopplease();
+    }
+    public void T_L_Time( double power, long time){//turn left for "time' miliseconds
+        T_L(power);
+        sleep(time);
+        stopplease();
+    }
+    public void T_R_Time( double power, long time){// turn right for "time" miliseconds
+        T_R(power);
+        sleep(time);
+        stopplease();
+
+    }
+    public void D_L_Time( double power, long time){// Drift right for "time" miliseconds
+        D_L(power);
+        sleep(time);
+        stopplease();
 
 
     }
-    public double x = OTOS.x;
-    public void FWD_DIS(double power,double x_dist, Telemetry words){
+    public void D_R_Time( double power, long time){// Drift left for "time" miliseconds
+        D_R(power);
+        sleep(time);
+       stopplease();
+
+
+    }
+    //public double x = OTOS.x;
+    public void FWD_DIS(double power,double x_dist){
 
 
 
 
-        while (OTOS.x <= x_dist   ){
+       // while (OTOS.x <= x_dist   ){
             m.LF(power);
             m.RB(power);
             m.LB(power);
@@ -116,9 +121,9 @@ public class Robot_drive {
 
 
         }
-        m.LF(0);
+       /* m.LF(0);
         m.RB(0);
         m.LB(0);
-        m.RF(0);
+        m.RF(0);*/
     }
-}
+
