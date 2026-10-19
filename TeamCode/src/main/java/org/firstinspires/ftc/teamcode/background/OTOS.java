@@ -1,25 +1,26 @@
 package org.firstinspires.ftc.teamcode.background;
 
 import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class OTOS {
-    SparkFunOTOS myOtos;
-    public void init(HardwareMap hwMap){
+    //SparkFunOTOS ;
+    public void init(HardwareMap hwMap, SparkFunOTOS myOtos){
         myOtos = hwMap.get(SparkFunOTOS.class, "sensor_otos");
         myOtos.resetTracking();
         myOtos.calibrateImu();
-        configureOtos();
+        configureOtos(myOtos);
     }
-    SparkFunOTOS.Pose2D pos = myOtos.getPosition();
+    /*SparkFunOTOS.Pose2D pos = myOtos.getPosition();
     public double x = pos.x;
     public double y = pos.y;
-    public double h = pos.h;
+    public double h = pos.h;*/
 
-    private void configureOtos(){
+    private void configureOtos(SparkFunOTOS myOtos){
         myOtos.setLinearUnit(DistanceUnit.INCH);
         myOtos.setAngularUnit(AngleUnit.DEGREES);
         SparkFunOTOS.Pose2D offset = new SparkFunOTOS.Pose2D(0, 0, 0);
