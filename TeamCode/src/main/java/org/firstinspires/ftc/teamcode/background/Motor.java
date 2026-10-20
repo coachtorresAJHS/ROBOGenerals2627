@@ -11,7 +11,7 @@ public class Motor {
     private DcMotor RightBack;
     private DcMotor LeftBack;
    // private DcMotor launcher;
-   // private DcMotor InTake;
+   //private DcMotor InTake;
 
 
     public void init (HardwareMap hwMap){
@@ -64,7 +64,7 @@ public class Motor {
 
     }
     public void IT (double power){
-        //InTake.setPower(power);
+      //  InTake.setPower(power);
     }
 
     }

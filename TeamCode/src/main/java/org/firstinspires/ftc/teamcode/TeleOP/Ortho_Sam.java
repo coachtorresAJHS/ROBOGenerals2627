@@ -31,11 +31,22 @@ public class Ortho_Sam extends OpMode {
             telemetry.addLine("please stop");
         }*/
 
-        trollie.FWD(-gamepad1.left_stick_y);
-        telemetry.addData("Speed:", gamepad1.left_stick_y);
-        trollie.T_R(gamepad1.right_stick_x);
+        if (gamepad1.left_stick_y != 0) {
+            trollie.FWD(-gamepad1.left_stick_y);
+            telemetry.addLine("FORWARD");
+        }
+        if (gamepad1.right_stick_x != 0) {
+            trollie.T_R(gamepad1.right_stick_x);
+            telemetry.addLine("TURN");
+        }
+
+       /* telemetry.addData("Speed:", gamepad1.left_stick_y);
+
         trollie.D_L(gamepad1.left_trigger);
         trollie.D_R(gamepad1.right_trigger);
+
+        */
+
 
 
 
