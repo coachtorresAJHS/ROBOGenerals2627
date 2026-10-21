@@ -8,8 +8,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class OTOS {
-    //SparkFunOTOS ;
-    public void init(HardwareMap hwMap, SparkFunOTOS myOtos){
+    SparkFunOTOS myOtos;
+    public void init(HardwareMap hwMap){
         myOtos = hwMap.get(SparkFunOTOS.class, "sensor_otos");
         myOtos.resetTracking();
         myOtos.calibrateImu();
@@ -41,6 +41,11 @@ public class OTOS {
         // the OTOS location to match and it will continue to track from there.
         SparkFunOTOS.Pose2D currentPosition = new SparkFunOTOS.Pose2D(0, 0, 0);
         myOtos.setPosition(currentPosition);
+    }
+    public double [] getPosition(){
+        SparkFunOTOS.Pose2D pos = myOtos.getPosition();
+
+        return new double[] {pos.x, pos.y, pos.h};
     }
 
 }

@@ -12,14 +12,13 @@ public class park extends OpMode {
    //Motor m = new Motor();
     Robot_drive drive = new Robot_drive();
     OTOS o = new OTOS();
-    SparkFunOTOS myOtos;
     int state;
 
     @Override
     public void init() {
        //m.init(hardwareMap);
        drive.init(hardwareMap);
-       o.init(hardwareMap,myOtos);
+       o.init(hardwareMap);
 
       state = 0;
 
@@ -27,14 +26,15 @@ public class park extends OpMode {
 
     @Override
     public void loop() {
-        SparkFunOTOS.Pose2D pos = myOtos.getPosition();
+        double CurrPos [] =  o.getPosition();
+        double X_pos = CurrPos[0];
         switch (state){
             case 0:
-                //drive.D_L(0.5,1500);
-                //drive.FWD(0.5,3200);
-                drive.FWD_DIS(0.1,54);
+                //drive.D_L_Time(0.5,1500);
+                //drive.FWD_Time(-0.5,3200);
+                drive.FWD_DIS( 1 ,54, X_pos);
                 state = 1;
-                //telemetry.addData("XPos",drive.x);
+                telemetry.addData("XPos",X_pos);
 
                 break;
             case 1:
