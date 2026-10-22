@@ -12,7 +12,7 @@ public class park extends OpMode {
    //Motor m = new Motor();
     Robot_drive drive = new Robot_drive();
     OTOS o = new OTOS();
-    int state;
+    String state;
 
     @Override
     public void init() {
@@ -21,7 +21,7 @@ public class park extends OpMode {
        o.init(hardwareMap);
        telemetry.addLine("hello");
 
-      state = 0;
+      state = "Move Forward";
 
     }
 
@@ -31,22 +31,21 @@ public class park extends OpMode {
         double X_pos = CurrPos[0];
         telemetry.addData("XPos",X_pos);
         switch (state){
-            case 0:
-                //drive.D_L_Time(0.5,1500);
-                //drive.FWD_Time(-0.5,3200);
-                drive.FWD_DIS( 1 ,54, X_pos);
-                state = 1;
-                telemetry.addData("XPos",X_pos);
-
+            case "Move Forward":
+                if (X_pos >= 54){
+                    state = "END";
+                }
+                if (X_pos >= 30){
+                    drive.FWD(.5);
+                }
+                else {
+                    drive.FWD(1);
+                }
                 break;
-            case 1:
+            case "END":
+                drive.stopplease();
                 telemetry.addLine("robotpark");
         }
 
-
-        //sleep(30000);
-    }
-    @Override
-    public void stop() {
     }
 }

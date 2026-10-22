@@ -42,10 +42,9 @@ public class OTOS {
         SparkFunOTOS.Pose2D currentPosition = new SparkFunOTOS.Pose2D(0, 0, 0);
         myOtos.setPosition(currentPosition);
     }
-    public double [] getPosition(){
+    public double[] getPosition (){
         SparkFunOTOS.Pose2D pos = myOtos.getPosition();
-
-        return new double[] {pos.x, pos.y, pos.h};
+        return new double[]{pos.x, pos.y, pos.h};
     }
 
 }
