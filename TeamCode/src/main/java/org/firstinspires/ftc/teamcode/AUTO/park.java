@@ -19,6 +19,7 @@ public class park extends OpMode {
        //m.init(hardwareMap);
        drive.init(hardwareMap);
        o.init(hardwareMap);
+       telemetry.addLine("hello");
 
       state = 0;
 
@@ -28,6 +29,7 @@ public class park extends OpMode {
     public void loop() {
         double CurrPos [] =  o.getPosition();
         double X_pos = CurrPos[0];
+        telemetry.addData("XPos",X_pos);
         switch (state){
             case 0:
                 //drive.D_L_Time(0.5,1500);
