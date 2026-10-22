@@ -129,7 +129,7 @@ public class Robot_drive {
            double backRightPower = forward + right - rotate;
            double backLeftPower = forward - right + rotate;
 
-           double maxPower = 1.0;
+           double maxPower = -1.0;
            double maxSpeed = 1.0;  // make this slower for outreaches
 
            // This is needed to make sure we don't pass > 1.0 to any wheel
@@ -143,8 +143,8 @@ public class Robot_drive {
            // We multiply by maxSpeed so that it can be set lower for outreaches
            // When a young child is driving the robot, we may not want to allow full
            // speed.
-           m.LF(-maxSpeed * (frontLeftPower / maxPower));
-           m.RF(-maxSpeed * (frontRightPower / maxPower));
+           m.LF(maxSpeed * (frontLeftPower / maxPower));
+           m.RF(maxSpeed * (frontRightPower / maxPower));
            m.LB(maxSpeed * (backLeftPower / maxPower));
            m.RB(maxSpeed * (backRightPower / maxPower));
        }

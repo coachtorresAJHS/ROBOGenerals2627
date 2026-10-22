@@ -32,6 +32,7 @@ public class Ortho extends OpMode {
         M.IT(-gamepad2.left_trigger);
         telemetry.addData("rightTriger", gamepad2.right_trigger);
     }
+    
 
 
 
