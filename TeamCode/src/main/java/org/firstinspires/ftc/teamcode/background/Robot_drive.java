@@ -108,19 +108,15 @@ public class Robot_drive {
 
     }
     //public double x = OTOS.x;
-    public void FWD_DIS(double power,double x_dist){
+    public void FWD_DIS(double power,double x_dist, double X_pos) {
 
-
-
-
-       // while (OTOS.x <= x_dist   ){
+        while (X_pos <= x_dist) {
             m.LF(power);
             m.RB(power);
             m.LB(power);
             m.RF(power);
-
-
         }
+    }
        /* m.LF(0);
         m.RB(0);
         m.LB(0);
@@ -147,8 +143,8 @@ public class Robot_drive {
            // We multiply by maxSpeed so that it can be set lower for outreaches
            // When a young child is driving the robot, we may not want to allow full
            // speed.
-           m.LF(maxSpeed * (frontLeftPower / maxPower));
-           m.RF(maxSpeed * (frontRightPower / maxPower));
+           m.LF(-maxSpeed * (frontLeftPower / maxPower));
+           m.RF(-maxSpeed * (frontRightPower / maxPower));
            m.LB(maxSpeed * (backLeftPower / maxPower));
            m.RB(maxSpeed * (backRightPower / maxPower));
        }
