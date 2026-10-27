@@ -39,6 +39,12 @@ public class Ortho_Sam extends OpMode {
             trollie.T_R(gamepad1.right_stick_x);
             telemetry.addLine("TURN");
         }
+        if(gamepad1.left_stick_y != 0){
+            trollie.BWD_Time(-gamepad1.left_stick_y);
+        }
+
+        
+        }
 
        /* telemetry.addData("Speed:", gamepad1.left_stick_y);
 
@@ -60,5 +66,5 @@ public class Ortho_Sam extends OpMode {
                             //CONTROL\*\
                              */
 
-    }
+
 

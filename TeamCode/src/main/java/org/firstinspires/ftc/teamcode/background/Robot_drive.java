@@ -40,8 +40,8 @@ public class Robot_drive {
         m.LF(power);
     }
     public void T_L(double power){
-        m.LF(0-power);
-        m.LB(0-power);
+        m.LF(-power);
+        m.LB(-power);
         m.RB(power);
         m.RF(power);
 
@@ -49,14 +49,14 @@ public class Robot_drive {
     public void T_R( double power){
         m.LF(power);
         m.LB(power);
-        m.RB(0-power);
+        m.RB(0-power); // it drift instead of turn
         m.RF(0-power);
     }
     public void D_L (double power){
-        m.LF(0-power);
+        m.LF(-power);
         m.LB(power);
-        m.RB(0-power);
-        m.RF(power);
+        m.RB(-power);
+        m.RF(power); // when Drift  it turn
     }
     public void D_R(double power){
         m.LF(power);
@@ -129,7 +129,7 @@ public class Robot_drive {
            double backRightPower = forward + right - rotate;
            double backLeftPower = forward - right + rotate;
 
-           double maxPower = -1.0;
+           double maxPower = 1.0;
            double maxSpeed = 1.0;  // make this slower for outreaches
 
            // This is needed to make sure we don't pass > 1.0 to any wheel
@@ -148,6 +148,9 @@ public class Robot_drive {
            m.LB(maxSpeed * (backLeftPower / maxPower));
            m.RB(maxSpeed * (backRightPower / maxPower));
        }
+
+    public void BWD_Time(float leftStickY) {
     }
+}
 
 
