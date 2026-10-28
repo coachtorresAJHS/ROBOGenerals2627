@@ -45,6 +45,15 @@ public class Ortho extends OpMode {
         if (gamepad2.y){
             M.L(0.65);
         }
+        if (gamepad2.dpad_up){
+            M.L(0.58);}
+        if (gamepad2.dpad_down){
+            M.L(0.57);}
+        if (gamepad2.dpad_left){
+            M.L(0.56);}
+        if (gamepad2.dpad_right) {
+            M.L(0.55);
+        }
         if (gamepad2.right_bumper)
             M.L(0);
         S.S1(-gamepad2.right_trigger);
