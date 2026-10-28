@@ -1,15 +1,27 @@
-package org.firstinspires.ftc.teamcode.background;
+/*package org.firstinspires.ftc.teamcode.background;
 
 import static android.os.SystemClock.sleep;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 //@TeleOp
 public class Robot_drive {
-    Motor m = new Motor();
+   /* Motor m = new Motor(new TeleOp()) {
+        @Override
+        public void init() {
+
+        }
+
+        @Override
+        public void loop() {
+
+        }
+    });
    // OTOS OTOS = new OTOS();
 
 
@@ -32,7 +44,7 @@ public class Robot_drive {
     public void INIT (HardwareMap hwMap){
         m.init(hardwareMap);
 
-    }*/
+    }
     public void FWD(double power) {
         m.RF(power);
         m.RB(power);
@@ -120,7 +132,7 @@ public class Robot_drive {
        /* m.LF(0);
         m.RB(0);
         m.LB(0);
-        m.RF(0);*/
+        m.RF(0);
        public void drive(double forward, double right, double rotate) {
            // This calculates the power needed for each wheel based on the amount of forward,
            // strafe right, and rotate
@@ -154,3 +166,4 @@ public class Robot_drive {
 }
 
 
+*/

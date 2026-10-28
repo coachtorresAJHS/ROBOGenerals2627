@@ -5,18 +5,18 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.background.Motor;
 import org.firstinspires.ftc.teamcode.background.OTOS;
-import org.firstinspires.ftc.teamcode.background.Robot_drive;
+//import org.firstinspires.ftc.teamcode.background.Robot_drive;
 import org.firstinspires.ftc.teamcode.background.Servooo;
 
 @TeleOp
 public class Ortho extends OpMode {
-    Robot_drive trollie = new Robot_drive();
-    Motor M = new Motor();
+    //Robot_drive trollie = new Robot_drive();
+    Motor M = new Motor(this);
     OTOS O = new OTOS();
     Servooo S = new Servooo();
     @Override
     public void init() {
-        trollie.init(hardwareMap);
+        //trollie.init(hardwareMap);
         M.init(hardwareMap);
         O.init(hardwareMap);
         S.init(hardwareMap);
@@ -30,7 +30,7 @@ public class Ortho extends OpMode {
         double X_Pos = CurPos[0];
         telemetry.addData("XPos:",X_Pos);
 
-        trollie.drive(-gamepad1.left_stick_y,gamepad1.right_stick_x, gamepad1.left_stick_x);
+        //trollie.drive(-gamepad1.left_stick_y,gamepad1.right_stick_x, gamepad1.left_stick_x);
         //M.L(gamepad2.right_trigger);
         M.IT(-gamepad2.left_trigger);
         if (gamepad2.a){

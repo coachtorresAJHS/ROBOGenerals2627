@@ -174,7 +174,7 @@ public class SensorSparkFunOTOS extends LinearOpMode {
 
     public static class RobotTeleopMecanumFieldRelativeDrive extends OpMode {
         // This declares the four motors needed
-        Motor M = new Motor();
+        Motor M = new Motor(this);
 
         // This declares the IMU needed to get the current direction the robot is facing
         IMU imu;

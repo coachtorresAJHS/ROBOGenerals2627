@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.background.Motor;
 @TeleOp
 public class TEST extends OpMode {
 
-    Motor M = new Motor();
+    Motor M = new Motor(this);
     Servooo S = new Servooo();
 
     @Override

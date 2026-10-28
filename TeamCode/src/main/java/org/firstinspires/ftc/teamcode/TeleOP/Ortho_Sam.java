@@ -3,14 +3,14 @@ package org.firstinspires.ftc.teamcode.TeleOP;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.background.Robot_drive;
+//import org.firstinspires.ftc.teamcode.background.Robot_drive;
 
 @TeleOp
 public class Ortho_Sam extends OpMode {
-    Robot_drive trollie = new Robot_drive();
+    //Robot_drive trollie = new Robot_drive();
     @Override
     public void init() {
-        trollie.init(hardwareMap);
+        //trollie.init(hardwareMap);
 
     }
 
@@ -32,15 +32,15 @@ public class Ortho_Sam extends OpMode {
         }*/
 
         if (gamepad1.left_stick_y != 0) {
-            trollie.FWD(-gamepad1.left_stick_y);
+            //trollie.FWD(-gamepad1.left_stick_y);
             telemetry.addLine("FORWARD");
         }
         if (gamepad1.right_stick_x != 0) {
-            trollie.T_R(gamepad1.right_stick_x);
+            //trollie.T_R(gamepad1.right_stick_x);
             telemetry.addLine("TURN");
         }
         if(gamepad1.left_stick_y != 0){
-            trollie.BWD_Time(-gamepad1.left_stick_y);
+            //trollie.BWD_Time(-gamepad1.left_stick_y);
         }
 
         

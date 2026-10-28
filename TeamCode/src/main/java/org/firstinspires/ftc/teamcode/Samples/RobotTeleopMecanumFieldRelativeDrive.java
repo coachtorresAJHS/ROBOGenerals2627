@@ -58,7 +58,7 @@ public class RobotTeleopMecanumFieldRelativeDrive extends OpMode {
 
     // This declares the IMU needed to get the current direction the robot is facing
     IMU imu;
-    Motor m = new Motor();
+    Motor m = new Motor(this);
 
     @Override
     public void init() {
