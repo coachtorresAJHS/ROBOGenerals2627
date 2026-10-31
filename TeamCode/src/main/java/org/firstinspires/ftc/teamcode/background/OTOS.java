@@ -14,6 +14,7 @@ public class OTOS {
         myOtos.resetTracking();
         myOtos.calibrateImu();
         configureOtos(myOtos);
+
     }
     /*SparkFunOTOS.Pose2D pos = myOtos.getPosition();
     public double x = pos.x;
@@ -25,8 +26,8 @@ public class OTOS {
         myOtos.setAngularUnit(AngleUnit.DEGREES);
         SparkFunOTOS.Pose2D offset = new SparkFunOTOS.Pose2D(0, 0, 0);
         myOtos.setOffset(offset);
-        myOtos.setLinearScalar(1.0);
-        myOtos.setAngularScalar(1.0);
+        myOtos.setLinearScalar(1);
+        myOtos.setAngularScalar(1);
         // Reset the tracking algorithm - this resets the position to the origin,
         // but can also be used to recover from some rare tracking errors
         myOtos.resetTracking();

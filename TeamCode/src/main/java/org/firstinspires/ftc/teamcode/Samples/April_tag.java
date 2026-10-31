@@ -93,8 +93,8 @@ public class April_tag extends LinearOpMode {
     // Windows: open a PowerShell, run:
     // Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -like 'USB*' } | Select-Object FriendlyName, InstanceId
     // and locate the line for your camera. The VID and PID is listed directly in the line.
-    static final int VENDOR_ID_SUNPLUS_INNOVATION_TECHNOLOGY = 0x1BCF;
-    static final int PRODUCT_ID_ARDUCAM_OV5648 = 0x284C;
+    static final int VENDOR_ID_SUNPLUS_INNOVATION_TECHNOLOGY = 0x046D;
+    static final int PRODUCT_ID_ARDUCAM_OV5648 = 0x08E5;
 
     @Override
     public void runOpMode() {

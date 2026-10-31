@@ -46,13 +46,13 @@ public class Ortho extends OpMode {
             M.L(0.65);
         }
         if (gamepad2.dpad_up){
-            M.L(0.58);}
+            M.L(0.55);}
         if (gamepad2.dpad_down){
-            M.L(0.57);}
+            M.L(0.50);}
         if (gamepad2.dpad_left){
-            M.L(0.56);}
+            M.L(0.45);}
         if (gamepad2.dpad_right) {
-            M.L(0.55);
+            M.L(0.40);
         }
         if (gamepad2.right_bumper)
             M.L(0);
