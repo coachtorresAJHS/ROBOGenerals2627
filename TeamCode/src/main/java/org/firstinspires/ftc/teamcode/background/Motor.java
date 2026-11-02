@@ -5,11 +5,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
-public class Motor {
+public class Motor extends LinearOpMode {
 
     private DcMotor RightFront;
 
@@ -90,9 +91,11 @@ public class Motor {
         LeftFront.setTargetPosition(targetTicks);
         LeftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         LeftFront.setPower(0.5);
-        while (LeftFront.isBusy()){
+        while ( opModeIsActive() &&LeftFront.isBusy()){
             opMode.telemetry.addData("current position",LeftFront.getCurrentPosition());
             opMode.telemetry.addData("Target position",LeftFront.getTargetPosition());
+            opMode.telemetry.update();
+            
         }
 
 
@@ -102,6 +105,11 @@ public class Motor {
 
     public boolean IsBusy (){
         return LeftFront.isBusy();
+    }
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
     }
 }
 // enc encoder
