@@ -1,34 +1,42 @@
 package org.firstinspires.ftc.teamcode.background;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
 
 public class Motor {
 
     private DcMotor RightFront;
+
     private DcMotor LeftFront;
     private DcMotor RightBack;
     private DcMotor LeftBack;
-    private DcMotor launcher;
+    //private DcMotor launcher;
     private DcMotor InTake;
 
+    private OpMode opMode;
 
-    public void init (HardwareMap hwMap){
+    private DcMotor Transer;
+
+
+    public void init(HardwareMap hwMap) {
 
         RightFront = hwMap.get(DcMotor.class, "RightFront");
-        LeftFront = hwMap.get(DcMotor.class,"LeftFront");
-        RightBack = hwMap.get(DcMotor.class,"RightBack");
-        LeftBack = hwMap.get(DcMotor.class,"LeftBack");
-        launcher = hwMap.get(DcMotor.class,"launcher");
-        InTake = hwMap.get(DcMotor.class,"InTake");
+        LeftFront = hwMap.get(DcMotor.class, "LeftFront");
+        RightBack = hwMap.get(DcMotor.class, "RightBack");
+        LeftBack = hwMap.get(DcMotor.class, "LeftBack");
+        //launcher = hwMap.get(DcMotor.class,"Launcher");
+        InTake = hwMap.get(DcMotor.class, "InTake");
 
         // We set the left motors in reverse which is needed for drive trains where the left
         // motors are opposite to the right ones.
         LeftFront.setDirection(DcMotor.Direction.FORWARD);
         RightFront.setDirection(DcMotor.Direction.REVERSE);
         RightBack.setDirection(DcMotor.Direction.REVERSE);
+
 
         // This uses RUN_USING_ENCODER to be more accurate.   If you don't have the encoder
         // wires, you should remove these
@@ -43,32 +51,57 @@ public class Motor {
         RightFront.setZeroPowerBehavior(BRAKE);
 
 
-
-
-
-
     }
-    public void RF (double power) {
+
+    public void RF(double power) {
         RightFront.setPower(power);
     }
-    public void RB (double power){
+
+    public void RB(double power) {
         RightBack.setPower(power);
 
     }
-    public void LF (double power){
+
+    public void LF(double power) {
         LeftFront.setPower(power);
     }
-    public void LB (double power){
+
+    public void LB(double power) {
         LeftBack.setPower(power);
     }
 
-    public void L (double power){
-        launcher.setPower(power);
+    public void L(double power) {
+        //launcher.setPower(power);
 
     }
-    public void IT (double power){
+
+    public void IT(double power) {
         InTake.setPower(power);
     }
 
+
+    public void ENC(double distanceInInches) {
+        double circumference = Math.PI * 4;
+        int targetTicks = (int) ((distanceInInches / circumference) * 537.7);
+        LeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        LeftFront.setTargetPosition(targetTicks);
+        LeftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        LeftFront.setPower(0.5);
+
+
+
+
+
     }
 
+    public boolean LeftFrontIsBusy(){
+        return LeftFront.isBusy();
+
+    }
+
+    public DcMotor GetLeftFront(){
+        return LeftFront;
+    }
+}
+// enc encoder
+//4 inches

@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode.AUTO;
 
 import static android.os.SystemClock.sleep;
 
-import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.background.Motor;
@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.background.Robot_drive;
 import org.firstinspires.ftc.teamcode.background.Servooo;
 
 @Autonomous
-public class park extends OpMode {
+public class park extends LinearOpMode  {
     Motor m = new Motor();
     Robot_drive drive = new Robot_drive();
     OTOS o = new OTOS();
@@ -21,21 +21,7 @@ public class park extends OpMode {
 
 
     @Override
-    public void init() {
-       m.init(hardwareMap);
-       drive.init(hardwareMap);
-       o.init(hardwareMap);
-       //telemetry.addLine("hello");
-       S.init(hardwareMap);
-
-
-      state = "Move Forward";
-
-    }
-
-    @Override
-    public void loop() {
-
+    public void runOpMode() throws InterruptedException {
         double CurrPos [] =  o.getPosition();
         double X_pos = CurrPos[0];
         double Y_pos = -CurrPos[1];
@@ -76,10 +62,10 @@ public class park extends OpMode {
                 sleep(6000);
                 state = "Park";
             case "Park":
-               drive.FWD(-0.4);
-               if (Y_pos >= (100/1.5)){
-                   state = "END";
-               }
+                drive.FWD(-0.4);
+                if (Y_pos >= (100/1.5)){
+                    state = "END";
+                }
 
             case "END":
                 drive.stopplease();
@@ -90,21 +76,38 @@ public class park extends OpMode {
                 telemetry.addData("Test:", "working");
                 telemetry.addLine("test");
 
-                drive.FWD(1);
-                sleep(5000);
-                /*drive.T_R(0.5);
-                sleep(5000);
-                drive.D_L(0.5);
-                sleep(5000);
-                drive.D_R(0.5);
+                while ( opModeIsActive() && m.LeftFrontIsBusy()){ // m = motor
+                    telemetry.addData("current position",m.GetLeftFront().getCurrentPosition());
+                    telemetry.addData("Target position",m.GetLeftFront().getTargetPosition());
+                    telemetry.update();
 
-                 */
+
+                }
 
 
 
 
         }
-
-
     }
+
+//    @Override
+//    public void init() {
+//       m.init(hardwareMap);
+//       drive.init(hardwareMap);
+//       o.init(hardwareMap);
+//       //telemetry.addLine("hello");
+//       S.init(hardwareMap);
+//
+//
+//      state = "Move Forward";
+//
+//    }
+
+//    @Override
+//    public void loop() {
+//
+//
+//
+//
+//    }
 }
