@@ -118,7 +118,7 @@ public class SensorSparkFunOTOS extends LinearOpMode {
         // multiple speeds to get an average, then set the linear scalar to the
         // inverse of the error. For example, if you move the robot 100 inches and
         // the sensor reports 103 inches, set the linear scalar to 100/103 = 0.971
-        myOtos.setLinearScalar(1.0);
+        myOtos.setLinearScalar(0.5);// we asked for 24 got 38 asked 12 got 18.5
         myOtos.setAngularScalar(1.0);
 
         // The IMU on the OTOS includes a gyroscope and accelerometer, which could
@@ -189,7 +189,7 @@ public class SensorSparkFunOTOS extends LinearOpMode {
             RevHubOrientationOnRobot.LogoFacingDirection logoDirection =
                     RevHubOrientationOnRobot.LogoFacingDirection.UP;
             RevHubOrientationOnRobot.UsbFacingDirection usbDirection =
-                    RevHubOrientationOnRobot.UsbFacingDirection.FORWARD;
+                    RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
 
             RevHubOrientationOnRobot orientationOnRobot = new
                     RevHubOrientationOnRobot(logoDirection, usbDirection);
