@@ -13,6 +13,7 @@ public class Motor {
     private DcMotor LeftBack;
     private DcMotor launcher;
     private DcMotor InTake;
+    private DcMotor transfer;
 
 
     public void init (HardwareMap hwMap){
