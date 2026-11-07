@@ -24,6 +24,7 @@ public class Motor {
         LeftBack = hwMap.get(DcMotor.class,"LeftBack");
         launcher = hwMap.get(DcMotor.class,"launcher");
         InTake = hwMap.get(DcMotor.class,"InTake");
+        transfer = hwMap.get(DcMotor.class,"transfer");
 
         // We set the left motors in reverse which is needed for drive trains where the left
         // motors are opposite to the right ones.
@@ -37,6 +38,7 @@ public class Motor {
         RightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         LeftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         RightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        transfer.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         LeftBack.setZeroPowerBehavior(BRAKE);
         LeftFront.setZeroPowerBehavior(BRAKE);
@@ -71,5 +73,11 @@ public class Motor {
         InTake.setPower(power);
     }
 
+    public void T (double power){
+        transfer.setPower(power);
     }
+
+    }
+
+
 

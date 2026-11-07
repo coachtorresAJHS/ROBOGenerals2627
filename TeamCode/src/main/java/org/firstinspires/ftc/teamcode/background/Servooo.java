@@ -23,6 +23,7 @@ public class Servooo {
         Servo6 = hwMap.get(CRServo.class, "Servo6");
        // Servo7 = hwMap.get(CRServo.class, "Servo7");
        // Servo8 = hwMap.get(CRServo.class, "Servo8");
+      //  Servo4.setDirection(Servo.Direction.REVERSE);
     }
     public void S1 (double pos){
         Servo1.setPower(pos);

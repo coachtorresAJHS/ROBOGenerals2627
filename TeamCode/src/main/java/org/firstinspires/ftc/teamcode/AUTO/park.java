@@ -29,7 +29,7 @@ public class park extends OpMode {
        S.init(hardwareMap);
 
 
-      state = "Move Forward";
+      state = "shoot";
 
     }
 
@@ -46,59 +46,64 @@ public class park extends OpMode {
         telemetry.addData("Angle",H_pos );
         //sleep(1500);
         switch (state){
-            case "shoot":
+            case "shoot": {
                 m.L(0.68);
                 sleep(1500);
-                m.IT(-1);
+                m.T(-1);
                 sleep(6000);
-                state = "Pick up ball";
+                state = "180";
                 break;
-            case "turn around":
-                drive.T_L(0.5);
-                if (H_pos >= 180){
-                    drive.stopplease();
-                    state = "Drive Right";
-                }
+            }
 
-            case "Drive Right":
-                drive.D_R(0.4);
-                if (X_pos >= (54/1.5)){
+            case "Test": {
+                drive.T_L(0.3);
+                if (H_pos >= 170) {
                     drive.stopplease();
-                    state = "Pick up ball";
+                    state = "End";
                 }
+            }
 
-            case "Pick up ball":
+
+            case "Pick up ball": {
+                S.S3(1);
+                S.S4(0);
                 m.L(0);
                 drive.FWD(0.3);
                 m.IT(-1);
-                S.S1(-1);
-                S.S2(1);
                 sleep(6000);
                 state = "Park";
-            case "Park":
-               drive.FWD(-0.4);
-               if (Y_pos >= (100/1.5)){
-                   state = "END";
-               }
+            }
+            case "Park": {
+                drive.FWD(-0.4);
+                if (Y_pos >= (100 / 1.5)) {
+                    state = "END";
+                }
+            }
 
-            case "END":
+            case "END": {
                 drive.stopplease();
                 telemetry.addLine("robotpark");
                 break;
-            case "Test":
-                telemetry.addData("y pos", Y_pos);
-                telemetry.addData("Test:", "working");
-                telemetry.addLine("test");
+            }
+            case "180": {
 
-                drive.FWD(1);
-                sleep(5000);
-                /*drive.T_R(0.5);
-                sleep(5000);
-                drive.D_L(0.5);
-                sleep(5000);
-                drive.D_R(0.5);
+                //telemetry.addData("Test:", "working");
+                //telemetry.addLine("test");
 
-                 */
+                drive.T_L(0.3);
+                if (H_pos >= 170) {
+                    drive.stopplease();
+                    state = "Drive Right";
+                }
+            }
+
+            case "Drive Right": {
+                drive.D_R(0.4);
+                if (X_pos >= (54 / 1.5)) {
+                    drive.stopplease();
+                    state = "Pick up ball";
+                }
+            }
 
 
 
