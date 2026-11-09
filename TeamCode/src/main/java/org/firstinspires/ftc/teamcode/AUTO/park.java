@@ -46,25 +46,25 @@ public class park extends OpMode {
         telemetry.addData("Angle",H_pos );
         //sleep(1500);
         switch (state){
-            case "shoot": {
+            case "shoot":
                 m.L(0.68);
                 sleep(1500);
                 m.T(-1);
                 sleep(6000);
                 state = "180";
                 break;
-            }
 
-            case "Test": {
+
+            case "Test":
                 drive.T_L(0.3);
                 if (H_pos >= 170) {
                     drive.stopplease();
                     state = "End";
                 }
-            }
+            break;
 
 
-            case "Pick up ball": {
+            case "Pick up ball":
                 S.S3(1);
                 S.S4(0);
                 m.L(0);
@@ -72,20 +72,20 @@ public class park extends OpMode {
                 m.IT(-1);
                 sleep(6000);
                 state = "Park";
-            }
-            case "Park": {
+            break;
+            case "Park":
                 drive.FWD(-0.4);
                 if (Y_pos >= (100 / 1.5)) {
                     state = "END";
                 }
-            }
+            break;
 
-            case "END": {
+            case "END":
                 drive.stopplease();
                 telemetry.addLine("robotpark");
                 break;
-            }
-            case "180": {
+
+            case "180":
 
                 //telemetry.addData("Test:", "working");
                 //telemetry.addLine("test");
@@ -95,15 +95,15 @@ public class park extends OpMode {
                     drive.stopplease();
                     state = "Drive Right";
                 }
-            }
+            break;
 
-            case "Drive Right": {
+            case "Drive Right":
                 drive.D_R(0.4);
                 if (X_pos >= (54 / 1.5)) {
                     drive.stopplease();
                     state = "Pick up ball";
                 }
-            }
+            break;
 
 
 
