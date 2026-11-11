@@ -52,19 +52,22 @@ public class Auto2 extends OpMode {
         telemetry.addData("state",state);
 
         switch (state){
-            case "shoot": {
+            case "shoot":
+                sleep(5000);
                 telemetry.addLine("shooting");
-                sleep(5000);
                 state = "turn 180";
-            }
-            case "turn 180":{
-                telemetry.addLine("turing");
+        break;
+
+            case "turn 180":
                 sleep(5000);
-                //state = "drift";
-            }
-            case "drift":{
+                telemetry.addLine("turing");
+                state = "drift";
+        break;
+
+            case "drift":
+                sleep(5000);
                 telemetry.addLine("drift");
-            }
+        break;
 
         }
 
