@@ -28,7 +28,10 @@ public class Ortho extends OpMode {
     public void loop() {
         double CurPos [] = O.getPosition();
         double X_Pos = CurPos[0];
+        double Y_pos = CurPos [1];
         telemetry.addData("XPos:",X_Pos);
+        telemetry.addData("YPos", Y_pos);
+
 
         trollie.drive(-gamepad1.left_stick_y,gamepad1.right_stick_x, gamepad1.left_stick_x);
         //M.L(gamepad2.right_trigger);

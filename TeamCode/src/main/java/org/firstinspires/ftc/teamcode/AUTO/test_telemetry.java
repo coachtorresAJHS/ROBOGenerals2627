@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.background.Robot_drive;
 import org.firstinspires.ftc.teamcode.background.Servooo;
 
 @Autonomous
-public class Auto2 extends OpMode {
+public class test_telemetry extends OpMode {
     Motor m = new Motor();
     Robot_drive drive = new Robot_drive();
     OTOS o = new OTOS();
