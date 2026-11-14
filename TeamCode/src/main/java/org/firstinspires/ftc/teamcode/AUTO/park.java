@@ -71,8 +71,21 @@ public class park extends OpMode {
                 drive.FWD(0.3);
                 m.IT(-1);
                 sleep(6000);
-                state = "Park";
+                state = "Drift and angle and shoot";
             break;
+
+            case "Drift and angle and shoot ":
+
+
+
+
+
+
+
+            break;
+
+
+
             case "Park":
                 drive.FWD(-0.4);
                 if (Y_pos >= (100 / 1.5)) {
@@ -104,6 +117,23 @@ public class park extends OpMode {
                     state = "Pick up ball";
                 }
             break;
+
+
+                // 1 shoot all 4 ball go forward for 12 in
+            // face forward 180
+            // 3 drift right for 54 in
+            // 4 lower the gate
+            // 5 intake power -1
+            // 6 forward  12 in
+            // 7 go backward for 12 in
+            // 8 then drift for left  for  6 in
+            // 9  go back for 124 in
+            // 10 -45 angle
+            // 11 shoot all four balls
+            // 12  drift right for 12 in
+
+
+
 
 
 

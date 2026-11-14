@@ -11,8 +11,6 @@ public class OTOS {
     SparkFunOTOS myOtos;
     public void init(HardwareMap hwMap){
         myOtos = hwMap.get(SparkFunOTOS.class, "sensor_otos");
-        myOtos.resetTracking();
-        myOtos.calibrateImu();
         configureOtos(myOtos);
 
     }

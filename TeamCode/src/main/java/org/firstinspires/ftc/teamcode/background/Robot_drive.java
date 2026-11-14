@@ -65,7 +65,6 @@ public class Robot_drive {
         m.RF(0-power);
     }
 
-
     public void stopplease(){
         m.LF(0);
         m.LB(0);

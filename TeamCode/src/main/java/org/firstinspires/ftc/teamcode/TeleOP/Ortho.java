@@ -60,7 +60,7 @@ public class Ortho extends OpMode {
         if (gamepad2.right_bumper)
             M.L(0);
         telemetry.addData("rightTriger", gamepad2.right_trigger);
-        M.T(-gamepad2.right_trigger);
+        M.T(gamepad2.right_trigger);
        // S.S3(0.88);// 1 is all the way to the floor  half is .88 up is 0.7
         // S.S4(0.12); // 0 is all the way to the floor up is .3  half is .12
         if (gamepad1.y) {
