@@ -51,7 +51,7 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
 
                 // shoot all 4 ball  and turn on transfer
                shoot();
-               sleep(3000);
+               sleep(3000); // change this on  friday make sure that this is enough  to luanch all 4 balls
                 state = "2";
                 break;
 
@@ -97,8 +97,8 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                 break;
             case "7":
                 //  forward  12 in
-                drive.FWD(0.5);
-                sleep(3000);
+                drive.FWD(0.3);
+                sleep(1500);
                 drive.stopplease();
                 m.IT(0);
                 m.T(0);
@@ -139,18 +139,34 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                 // 11 shoot all four balls
                 break;
             case "9b":
-                drive.T_L(0.5);
-                if (H_pos >= -50) {
+                drive.T_L(0.15);
+                if (H_pos >= -50 & H_pos <= 0) {
                     drive.stopplease();
                     state = "10b";
                 }
                 break;
             case "10b":
                 shoot();
-                sleep(3000);
+                sleep(3000); // change this on  friday make sure that this is enough  to luanch all 4 balls
+                m.L(0);
+                m.IT(0);
+                m.T(0);
                 state = "11b";
                 break;
-                
+            case "11b":
+                drive.T_L(0.15);
+                if (H_pos >= 0) {
+                    drive.stopplease();
+                    state = "12b";
+                }
+                break;
+            case "12b":
+                drive.FWD(0.7);
+                if (Y_pos >= 100){ // how far to park front side of box  coach torres
+                    drive.stopplease();
+                    state = "13b";
+                }
+                break;
 
             // 11 shoot all four balls
             // 12  drift right for 12 in
@@ -158,7 +174,7 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
     }
 
     private void shoot(){
-        m.L(0.68);
+        m.L(0.68); // change this on friday or find the perfect speed
         sleep(200);
         m.T(1);
         m.IT(1);
