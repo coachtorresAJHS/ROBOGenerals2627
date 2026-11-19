@@ -51,6 +51,7 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
 
                 // shoot all 4 ball  and turn on transfer
                shoot();
+               sleep(3000);
                 state = "2";
                 break;
 
@@ -144,6 +145,12 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                     state = "10b";
                 }
                 break;
+            case "10b":
+                shoot();
+                sleep(3000);
+                state = "11b";
+                break;
+                
 
             // 11 shoot all four balls
             // 12  drift right for 12 in
