@@ -17,9 +17,10 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
     Robot_drive drive = new Robot_drive();
     OTOS o = new OTOS();
     Servooo S = new Servooo();
-    double start_x=0;
-    double start_y=0;
+    double start_x = 0;
+    double start_y = 0;
     String state;
+
     @Override
     public void init() {
         m.init(hardwareMap);
@@ -35,26 +36,23 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
     @Override
     public void loop() {
 
-        double CurrPos [] =  o.getPosition();
+        double CurrPos[] = o.getPosition();
         double X_pos = CurrPos[0];
         double Y_pos = CurrPos[1];
         double H_pos = CurrPos[2];
         telemetry.addLine(state);
-        telemetry.addData("XPos",X_pos);
-        telemetry.addData("YPos",Y_pos);
-        telemetry.addData("Angle",H_pos );
+        telemetry.addData("XPos", X_pos);
+        telemetry.addData("YPos", Y_pos);
+        telemetry.addData("Angle", H_pos);
 
         switch (state) {
 
             case "1":
 
-            // shoot all 4 ball  and turn on transfer
-                m.T(1);
-                m.IT(1);
-                m.L(0.68);
-
+                // shoot all 4 ball  and turn on transfer
+               shoot();
                 state = "2";
-            break;
+                break;
 
             case "2":
                 // go forward for 12 in
@@ -63,7 +61,7 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                     drive.stopplease();
                     state = "3";
                 }
-            break;
+                break;
 
             case "3":
                 // face forward 180
@@ -72,13 +70,14 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                     drive.stopplease();
                     m.T(0);
                     m.L(0);
+                    sleep(200);
                     state = "4";
                 }
                 break;
             case "4":
                 //drift right for 38 in
                 drive.D_R(0.4);
-                if (X_pos >= 36 ){
+                if (X_pos >= 31) {
                     drive.stopplease();
                     state = "5";
                 }
@@ -102,7 +101,7 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                 drive.stopplease();
                 m.IT(0);
                 m.T(0);
-                double MyOriginalpos [] =  o.getPosition();
+                double MyOriginalpos[] = o.getPosition();
                 start_x = MyOriginalpos[0];
                 state = "8";
                 break;
@@ -113,45 +112,48 @@ public class tile3left_score_shoot_park_2026_2027 extends OpMode
                 telemetry.addData("movingpos", o.getPosition()[0]);
                 telemetry.addData("bool", o.getPosition()[0] <= start_x - 6);
                 telemetry.update();
-                if (o.getPosition()[0] <= start_x - 6){
+                if (o.getPosition()[0] <= start_x - 6) {
                     drive.stopplease();
-                    start_y =o.getPosition()[1];
-                    state="9";
+                    start_y = o.getPosition()[1];
+                    state = "9b";
                 }
                 break;
-                case "9":
-                    //  go back for 124 in
-                    drive.FWD(-0.5);
-                    if (o.getPosition()[1] >= start_y + 95-24){
-                        drive.stopplease();
-                        state = "10";
-                    }
-                    break;
+            case "9":
+                //  go back for 124 in
+                drive.FWD(-0.5);
+                if (o.getPosition()[1] >= start_y + 95 - 24) {
+                    drive.stopplease();
+                    state = "10";
+                }
+                break;
             case "10":
                 //  -45 angle
                 drive.T_L(0.3);
-                if (H_pos <= 180-45) {
+                if (H_pos <= 360 - 140) {
                     drive.stopplease();
-                    state = "11";}
+                    state = "11";
+                }
                 break;
-            case "12":
-
-
-
-
-
-
-
-
-
-
+            case "11":
+                // 11 shoot all four balls
+                break;
+            case "9b":
+                drive.T_L(0.5);
+                if (H_pos >= -50) {
+                    drive.stopplease();
+                    state = "10b";
+                }
+                break;
 
             // 11 shoot all four balls
             // 12  drift right for 12 in
         }
-
-
     }
 
-
+    private void shoot(){
+        m.L(0.68);
+        sleep(200);
+        m.T(1);
+        m.IT(1);
+    }
 }
